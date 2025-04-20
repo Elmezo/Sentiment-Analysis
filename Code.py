@@ -15,14 +15,6 @@ client = tweepy.Client(bearer_token=bearer_token)
 query = "الذكاء الاصطناعي lang:ar"
 tweets = client.search_recent_tweets(query=query, max_results=100)
 
-# طباعة التغريدات
-if tweets.data:
-    for tweet in tweets.data:
-        print(f"User: {tweet.author_id}")
-        print(f"Tweet: {tweet.text}\n")
-else:
-    print("No tweets found for the query.")
-
 
 def clean_text(tweet):
     tweet = re.sub(r"http\S+", "", tweet)  # حذف الروابط
